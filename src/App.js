@@ -39,26 +39,13 @@ app.get('/getQuizQuestions', (req, res) => {
 });
 
 app.get('/getQuizChoices', (req, res) => {
-    res.send(
-        [
-            {
-                id: '0',
-                name: 'Fellan'
-            },
-            {
-                id: '1',
-                name: 'Ante'
-            },
-            {
-                id: '2',
-                name: 'Omar'
-            },
-            {
-                id: '3',
-                name: 'Beetle'
-            },
-        ]
-    )
+    connection.connect((err) => {
+        if (err) throw err;
+        connection.query('SELECT * FROM choices', (err, result) => {
+            if (err) throw err;
+            res.send(result);
+        })
+    })
 });
 
 
