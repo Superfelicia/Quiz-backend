@@ -95,7 +95,6 @@ app.get('/getQuizAnswers', (req, res) => {
             console.log(allAnswersArr)
 
             console.log(tempArr0, tempArr1, tempArr2, tempArr3 && tempArr4);
-            // console.log(result);
             res.send(allAnswersArr);
         })
     })
