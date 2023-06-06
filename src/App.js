@@ -104,10 +104,11 @@ app.get('/settings', (req, res) => {
     connection.connect((err) => {
         if (err) throw err;
     })
-    const sql = 'SELECT settings from settings';
+    const sql = 'SELECT * from settings';
     connection.query(sql, (err, result) => {
         if (err) throw err;
         console.log(result)
+        res.send(result);
     })
 })
 
