@@ -100,6 +100,17 @@ app.get('/getQuizAnswers', (req, res) => {
     })
 })
 
+app.get('/settings', (req, res) => {
+    connection.connect((err) => {
+        if (err) throw err;
+    })
+    const sql = 'SELECT settings from settings';
+    connection.query(sql, (err, result) => {
+        if (err) throw err;
+        console.log(result)
+    })
+})
+
 app.listen(3001, () => {
     console.log(`server running on port ${port}`);
 });
